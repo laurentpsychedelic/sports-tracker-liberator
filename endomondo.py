@@ -172,7 +172,7 @@ class Endomondo:
 		r = self.make_request(self.URL_WORKOUTS)
 
 		workouts = []
-		for entry in r.json['data']:
+		for entry in r.json()['data']:
 			workout = EndomondoWorkout(self)
 			
 			workout.id = entry['id']
