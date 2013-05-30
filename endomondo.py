@@ -175,6 +175,8 @@ class Endomondo:
 		for entry in r.json()['data']:
 			workout = EndomondoWorkout(self)
 			
+                        workout.rawdata = entry
+
 			workout.id = entry['id']
 
 			if entry.has_key('name'):
@@ -209,6 +211,7 @@ class Workout:
 	"""
 	Data params. Endomondo provides a bunch of them, but we are only interested on some
 	"""
+	rawdata = ""
 	start_time = None
 	end_time = None
 	id = 0
@@ -216,7 +219,6 @@ class Workout:
 	summary = ""
 	note = ""
 	location = ""
-	
 	# Creator
 	sports_tracker = None
 	def __init__(self, sports_tracker):
