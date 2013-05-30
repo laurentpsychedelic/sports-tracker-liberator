@@ -4,7 +4,12 @@
 from endomondo import Endomondo
 from getpass import getpass
 from datetime import timedelta
+from sys import stdin, stderr
 import time
+
+def get_email():
+    stderr.write('Account name: ')
+    return stdin.read()
 
 if __name__ == "__main__":
     
