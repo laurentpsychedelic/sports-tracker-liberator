@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from endomondo import Endomondo
+from getpass import getpass
+from datetime import timedelta
+import time
+
+if __name__ == "__main__":
+    
+    email = raw_input('Account name: ')
+    password = getpass('Password: ')
+
+    sports_tracker = Endomondo(email, password)
+    for workout in sports_tracker.workout_list():
+        print workout.summary + "<" + (workout.end_time - timedelta(seconds=time.timezone)).strftime("%Y-%m-%d %H:%M:%S") + ">\n"
+        print str(workout.rawdata) + "\n\n"
